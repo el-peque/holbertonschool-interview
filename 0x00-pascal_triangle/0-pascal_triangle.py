@@ -11,8 +11,6 @@ def pascal_triangle(n):
     for i in range(1, n + 1):
         row = []
         for j in range(i):
-            print(f"j: {j}, i: {i}")
-            print(triangle)
             if j == 0 or j == i - 1:
                 row.append(1)
             elif j == 1 or j == i - 2:
