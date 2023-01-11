@@ -1,6 +1,9 @@
 #include "sandpiles.h"
 #include <unistd.h>
 
+static void print_grid(int grid[3][3]);
+int check_grid(int grid[3][3]);
+int _putchar(char c);
 /**
  * sandpiles_sum - computes the sum of two sandpiles
  * @grid1: Left 3x3 grid
