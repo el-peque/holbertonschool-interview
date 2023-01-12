@@ -28,6 +28,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		{
 			if (grid1[i][j] - grid_changes[i][j] > 3)
 			{
+				grid_changes[i][j] = 0;
 				if (i > 0)
 				{
 					grid1[i - 1][j] += 1, grid_changes[i - 1][j] += 1; }
