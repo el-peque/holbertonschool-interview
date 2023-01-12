@@ -1,10 +1,8 @@
 #include "sandpiles.h"
-#include <unistd.h>
 #include <stdio.h>
 
 static void print_grid(int grid[3][3]);
 int check_grid(int grid[3][3]);
-int _putchar(char c);
 /**
  * sandpiles_sum - computes the sum of two sandpiles
  * @grid1: Left 3x3 grid
@@ -88,28 +86,15 @@ static void print_grid(int grid[3][3])
 {
 	int i, j;
 
-	_putchar('=');
-	_putchar('\n');
+	printf("=\n");
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
 			if (j)
-				_putchar(' ');
-			_putchar(grid[i][j] + '0');
+				printf(" ");
+			printf("%d", grid[i][j]);
 		}
-		_putchar('\n');
+		printf("\n");
 	}
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
