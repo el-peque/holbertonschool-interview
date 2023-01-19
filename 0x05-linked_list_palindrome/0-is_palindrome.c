@@ -19,7 +19,8 @@ int is_palindrome(listint_t **head)
 		if (two_step->next)
 		{
 			aux = malloc(sizeof(listint_t **));
-			aux->next = dummy, aux->n = one_step->n;
+			aux->next = dummy;
+			aux->n = one_step->n;
 			dummy = aux; }
 		if (!two_step->next || !two_step->next->next)
 		{
