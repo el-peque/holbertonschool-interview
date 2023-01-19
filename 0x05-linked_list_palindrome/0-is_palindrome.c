@@ -9,13 +9,12 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *aux, *dummy, *dummy_head;
+	listint_t *aux, *dummy;
 	listint_t *one_step = *head, *two_step = *head;
 
 	if (!head || !one_step->next)
 		return (1);
 	dummy = malloc(sizeof(listint_t **));
-	dummy_head = dummy;
 	while (one_step)
 	{
 		if (two_step->next)
@@ -43,7 +42,8 @@ int is_palindrome(listint_t **head)
 			free_listint(aux);
 			return (1);
 		}
-		one_step = one_step->next, two_step = two_step->next->next;
+		one_step = one_step->next;
+		two_step = two_step->next->next;
 	}
 	free_listint(dummy);
 	return (0);
