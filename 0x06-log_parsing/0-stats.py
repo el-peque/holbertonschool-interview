@@ -17,17 +17,20 @@ if __name__ == '__main__':
     line_count = 0
     total_size = 0
     status_code = []
-    for line in sys.stdin:
-        line_count += 1
-        line_tok = line.split()
-        valid, status_code, file_size = line_parser(line_tok)
-        if not valid:
-            continue
-        if status_code in stats.keys():
-            stats[status_code] += 1
-        total_size += file_size
-        if line_count % 10 == 0 and line_count > 1:
-            print("File size: {}".format(total_size))
-            for code, count in stats.items():
-                if count > 0:
-                    print("{}: {}".format(code, count))
+    try:
+        for line in sys.stdin:
+            line_count += 1
+            line_tok = line.split()
+            valid, status_code, file_size = line_parser(line_tok)
+            if not valid:
+                continue
+            if status_code in stats.keys():
+                stats[status_code] += 1
+            total_size += file_size
+            if line_count % 10 == 0 and line_count > 1:
+                print("File size: {}".format(total_size))
+                for code, count in stats.items():
+                    if count > 0:
+                        print("{}: {}".format(code, count))
+    except KeyboardInterrupt:
+        print("File size: {}".format(total_size))
