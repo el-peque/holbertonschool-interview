@@ -3,14 +3,6 @@
 import sys
 
 
-def line_parser(stats):
-    if not line or len(stats) != 9 or stats[1] != '-':
-        return False, 0, 0
-    if not stats[-1].isdigit() or not stats[-2].isdigit():
-        return False, 0, 0
-    return True, stats[-2], int(stats[-1])
-
-
 def print_parsed_stats(stats, total_size):
     print("File size: {}".format(total_size))
     for code in sorted(stats.keys()):
@@ -27,8 +19,10 @@ if __name__ == '__main__':
     try:
         for line in sys.stdin:
             line_tok = line.split()
-            valid, status_code, file_size = line_parser(line_tok)
-            if not valid:
+            try:
+                status_code = line_tok[-2]
+                file_size = int(line_tok[-1])
+            except Exception:
                 continue
             if status_code in stats.keys():
                 stats[status_code] += 1
