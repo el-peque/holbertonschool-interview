@@ -34,3 +34,6 @@ if __name__ == '__main__':
                         print("{}: {}".format(code, count))
     except KeyboardInterrupt:
         print("File size: {}".format(total_size))
+        for code, count in stats.items():
+            if count > 0:
+                print("{}: {}".format(code, count))
