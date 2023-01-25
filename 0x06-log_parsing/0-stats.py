@@ -15,11 +15,11 @@ if __name__ == '__main__':
         file_size = int(stats[-1])
         total_size += file_size
         if line_count % 10 == 0 and line_count > 0:
-            print(f"File size: {total_size}")
+            print("File size: {}".format(total_size))
             i = j
             sorted_status = sorted(status_code[i:])
             for i, status in enumerate(sorted_status):
                 if status not in sorted_status[i+1:]:
-                    print(f"{status}: {status_code.count(status)}")
+                    print("{}: {}".format(status, status_code.count(status)))
                 j += 1
         line_count += 1
