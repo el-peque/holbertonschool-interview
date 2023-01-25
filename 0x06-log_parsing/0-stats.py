@@ -11,6 +11,13 @@ def line_parser(stats):
     return True, stats[-2], int(stats[-1])
 
 
+def print_parsed_stats(stats, total_size):
+    print("File size: {}".format(total_size))
+    for code in sorted(stats.keys()):
+        if stats[code] > 0:
+            print("{}: {}".format(code, stats[code]))
+
+
 if __name__ == '__main__':
     stats = {'200': 0, '301': 0, '400': 0, '401': 0,
              '403': 0, '404': 0, '405': 0, '500': 0}
@@ -19,7 +26,6 @@ if __name__ == '__main__':
     status_code = []
     try:
         for line in sys.stdin:
-            line_count += 1
             line_tok = line.split()
             valid, status_code, file_size = line_parser(line_tok)
             if not valid:
@@ -27,13 +33,9 @@ if __name__ == '__main__':
             if status_code in stats.keys():
                 stats[status_code] += 1
             total_size += file_size
-            if line_count % 10 == 0 and line_count > 1:
-                print("File size: {}".format(total_size))
-                for code, count in stats.items():
-                    if count > 0:
-                        print("{}: {}".format(code, count))
+            if line_count % 10 == 0 and line_count > 0:
+                print_parsed_stats(stats, total_size)
+            line_count += 1
     except KeyboardInterrupt:
-        print("File size: {}".format(total_size))
-        for code, count in stats.items():
-            if count > 0:
-                print("{}: {}".format(code, count))
+        print_parsed_stats(stats, total_size)
+        raise
