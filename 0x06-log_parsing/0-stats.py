@@ -33,3 +33,4 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print_parsed_stats(stats, total_size)
         raise
+    print_parsed_stats(stats, total_size)
