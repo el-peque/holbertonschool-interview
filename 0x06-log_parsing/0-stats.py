@@ -7,14 +7,12 @@ if __name__ == '__main__':
     stats = {'200': 0, '301': 0, '400': 0, '401': 0,
              '403': 0, '404': 0, '405': 0, '500': 0}
 
-
     def print_parsed_stats(total_size):
         """Prints stast in '{status_code}: {number}' format"""
         print("File size: {}".format(total_size))
         for code in sorted(stats.keys()):
             if stats[code] > 0:
                 print("{}: {}".format(code, stats[code]))
-
 
     def parse_line(line):
         """Parses line and return file size"""
