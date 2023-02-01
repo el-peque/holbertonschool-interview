@@ -9,6 +9,10 @@ int check_cycle(listint_t *list)
 {
 	listint_t *dummy = list;
 
+	if (!list)
+		return (0);
+	if (!list->next)
+		return (1);
 	while (dummy->next)
 	{
 		dummy = dummy->next;
