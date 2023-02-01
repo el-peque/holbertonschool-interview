@@ -7,13 +7,15 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *one_step = list, *two_step = list;
+	listint_t *dummy = list;
 
-	while (two_step->next->next)
+	if (!dummy)
+		return (0);
+
+	while (dummy->next)
 	{
-		two_step = two_step->next->next;
-		one_step = one_step->next;
-		if (one_step == two_step)
+		dummy = dummy->next;
+		if (dummy == list)
 			return (1);
 	}
 
