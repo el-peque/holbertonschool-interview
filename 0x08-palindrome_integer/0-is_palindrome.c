@@ -10,19 +10,13 @@
 
 int is_palindrome(unsigned long n)
 {
-	unsigned long int i = 10, j, reverse_n = 0;
+	unsigned long int num = n, reverse_n = 0;
 
-	while ((n / i) > 0)
-		i *= 10;
-
-	reverse_n = (i / 10) * (n % 10);
-	j = i / 100;
-	i = 10;
-	while ((n / i) > 0)
+	while (n > 0)
 	{
-		reverse_n += j * ((n / i) % 10);
-		j /= 10;
-		i *= 10;
+		reverse_n *= 10;
+		reverse_n += (n % 10);
+		n /= 10;
 	}
-	return (n == reverse_n);
+	return (num == reverse_n);
 }
