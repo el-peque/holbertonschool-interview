@@ -19,7 +19,7 @@ int slide_line(int *line, size_t size, int direction)
 	int changes[size];
 
 	fill_zeroes(changes, size);
-	while (direction == SLIDE_LEFT)
+	while (direction == SLIDE_RIGHT)
 	{
 		change = 0;
 		for (i = size - 1; i > 0; i--)
@@ -50,30 +50,30 @@ int slide_line(int *line, size_t size, int direction)
 		if (change == 0)
 			return (1);
 	}
-	while (direction == SLIDE_RIGHT)
+	while (direction == SLIDE_LEFT)
 	{
 		change = 0;
 		for (i = 0; i < size; i++)
 		{
-			if (i < size - 1 && line[i] != 0)
+			if (i < size - 1 && line[i + 1] != 0)
 			{
-				if (line[i + 1] == 0)
+				if (line[i1] == 0)
 				{
-					line[i + 1] += line[i];
-					line[i] = 0;
+					line[i] += line[i + 1];
+					line[i + 1] = 0;
 					change++;
 					if (changes[i] == 1)
 					{
-						changes[i + 1] = 1;
-						changes[i] = 0;
+						changes[i] = 1;
+						changes[i + 1] = 0;
 					}
 				}
-				else if (changes[i + 1] != 1 && line[i + 1] == line[i])
+				else if (changes[i] != 1 && line[i + 1] == line[i])
 				{
-					changes[i + 1] = 1;
-					changes[i] = 0;
-					line[i + 1] += line[i];
-					line[i] = 0;
+					changes[i] = 1;
+					changes[i + 1] = 0;
+					line[i] += line[i];
+					line[i + 1] = 0;
 					change++;
 				}
 			}
