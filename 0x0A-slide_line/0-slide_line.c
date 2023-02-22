@@ -16,7 +16,8 @@ void fill_zeroes(int *array, size_t size);
 int slide_line(int *line, size_t size, int direction)
 {
 	int change = 0;
-	int changes[size];
+	int changes[30];
+	//size];
 
 	fill_zeroes(changes, size);
 	while (direction == SLIDE_RIGHT)
