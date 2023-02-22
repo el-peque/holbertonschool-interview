@@ -1,5 +1,9 @@
 #include "slide_line.h"
 
+int slide_right(int *line, int *changes, size_t size);
+int slide_left(int *line, int *changes, size_t size);
+void fill_zeroes(int *array, size_t size);
+
 /**
  * slide_line - Reproduces the 2048 game mechanics on a single horizontal line
  *

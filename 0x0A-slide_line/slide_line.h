@@ -8,8 +8,5 @@
 
 
 int slide_line(int *line, size_t size, int direction);
-int slide_right(int *line, int *changes, size_t size);
-int slide_left(int *line, int *changes, size_t size);
-void fill_zeroes(int *array, size_t size);
 
 #endif /* SLIDE_LINE_H */
