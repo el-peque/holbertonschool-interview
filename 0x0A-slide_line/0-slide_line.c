@@ -4,20 +4,10 @@ int slide_right(int *line, int *changes, size_t size);
 int slide_left(int *line, int *changes, size_t size);
 void fill_zeroes(int *array, size_t size);
 
-/**
- * slide_line - Reproduces the 2048 game mechanics on a single horizontal line
- *
- * @line: Pointer to the line
- * @size: Number of elements in @line
- * @direction: Direction in where to move line
- *
- * Return: 1 upon success, or 0 upon failure
- */
 int slide_line(int *line, size_t size, int direction)
 {
 	int change = 0;
-	int changes[30];
-	//size];
+	int changes[size];
 
 	fill_zeroes(changes, size);
 	while (direction == SLIDE_RIGHT)
@@ -34,16 +24,6 @@ int slide_line(int *line, size_t size, int direction)
 	}
 	return (0);
 }
-
-/**
- * slide_right - Reproduces the 2048 right move on a single horizontal line
- *
- * @line: Pointer to the line
- * @changes: Pointer to changes
- * @size: Number of elements in @line
- *
- * Return: number of changes to line
- */
 int slide_right(int *line, int *changes, size_t size)
 {
 	int i = 0, change = 0;
@@ -75,16 +55,6 @@ int slide_right(int *line, int *changes, size_t size)
 	}
 	return (change);
 }
-
-/**
- * slide_left - Reproduces the 2048 left move on a single horizontal line
- *
- * @line: Pointer to the line
- * @changes: Pointer to changes
- * @size: Number of elements in @line
- *
- * Return: number of changes to line
- */
 int slide_left(int *line, int *changes, size_t size)
 {
 	int change = 0;
@@ -117,13 +87,6 @@ int slide_left(int *line, int *changes, size_t size)
 	}
 	return (change);
 }
-
-/**
- * fill_zeroes - Fills an array with 0
- *
- * @array: pointer to the array to fill
- * @size: size of the array
- */
 void fill_zeroes(int *array, size_t size)
 {
 	size_t i = 0;
