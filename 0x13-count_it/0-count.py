@@ -25,7 +25,8 @@ def count_words(subreddit, word_list):
     sorted_word_count = sorted(
         word_count.items(), key=lambda x: x[1], reverse=True)
     for item in sorted_word_count:
-        print('{}: {}'.format(item[0], item[1]))
+        if item[1] != 0:
+            print('{}: {}'.format(item[0], item[1]))
 
 
 if __name__ == '__main__':
