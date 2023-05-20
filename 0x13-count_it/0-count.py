@@ -6,9 +6,9 @@ import sys
 
 def count_words(subreddit, word_list):
     """Count words in subreddit"""
-    r = requests.get('https://www.reddit.com/r/{}/hot.json'.format(subreddit))
-    print(r.status_code)
-    if r.status_code != '200':
+    r = requests.get(url='https://www.reddit.com/r/{}/hot.json'.format(subreddit),
+                     headers={'User-Agent': 'Mozilla/5.0'})
+    if r.status_code != 200:
         return
 
     data = r.json().get('data')
@@ -23,8 +23,8 @@ def count_words(subreddit, word_list):
     if sum(word_count.values()) == 0:
         return
     sorted_word_count = sorted(word_count.items(), key=lambda x: x[1])
-    for k, v in sorted_word_count.items():
-        print('{}: {}'.format(k, v))
+    for item in sorted_word_count:
+        print('{}: {}'.format(item[0], item[1]))
 
 
 if __name__ == '__main__':
