@@ -5,37 +5,47 @@
  * @list: list to search in
  * @value: searched value
  * Return: value or NULL if not present
-*/
+ */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-    skiplist_t *express_lane, *prev;
+	skiplist_t *express_lane = list;
+	size_t end = 0;
 
-    if (!list)
-        return NULL;
-
-    express_lane = list;
-    while (express_lane)
-    {
-        if (express_lane->express == NULL || express_lane->express->n >= value)
-        {
-            printf("Value found between indexes [%zu] and [%zu]\n",
-                   express_lane->index, express_lane->express->index);
-            break;
-        }
-        express_lane = express_lane->express;
-        printf("Value checked at index [%zu] = [%d]\n",
-               express_lane->index, express_lane->n);
-    }
-
-    prev = express_lane;
-    while (prev)
-    {
-        printf("Value checked at index [%zu] = [%d]\n",
-               prev->index, prev->n);
-        if (prev->n == value)
-            return prev;
-        prev = prev->next;
-    }
-
-    return NULL;
+	if (!list)
+		return (NULL);
+	while (list->next)
+		list = list->next;
+	end = list->index, list = express_lane;
+	while (list->next)
+	{
+		if (express_lane->express)
+			printf("Value checked at index [%zu] = [%d]\n",
+				   express_lane->express->index, express_lane->express->n);
+		if (express_lane->express && express_lane->express->n == value)
+		{
+			printf("Value found between indexes [%zu] and [%d]\n",
+				   express_lane->express->index, express_lane->express->n);
+			return (express_lane->express);
+		}
+		if (express_lane->express && express_lane->express->n < value)
+		{
+			express_lane = express_lane->express;
+			list = express_lane;
+			continue;
+		}
+		if (list->express)
+			end = list->express->index;
+		printf("Value found between indexes [%zu] and [%zu]\n", list->index, end);
+		while (list)
+		{
+			printf("Value checked at index [%zu] = [%d]\n", list->index, list->n);
+			if (list->n == value)
+				return (list);
+			if (list->next)
+				list = list->next;
+			else
+				return (NULL);
+		}
+	}
+	return (NULL);
 }
