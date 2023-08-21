@@ -12,9 +12,9 @@ def count_words(subreddit, word_list):
     def count_words_recursive(subreddit, word_list, after=None):
         """Count words recursively"""
         if after:
-            params = {"after": after}
+            params = {"limit: 100", "after": after}
         else:
-            params = {}
+            params = {"limit: 100"}
 
         r = requests.get(url='https://www.reddit.com/r/{}/hot.json'.format(
             subreddit),
