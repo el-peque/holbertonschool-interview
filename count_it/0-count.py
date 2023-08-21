@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""Count it!"""
+"""0 - Count it! - 0"""
 import requests
-import sys
 
 
 def count_words(subreddit, word_list, after=None, counts=None):
