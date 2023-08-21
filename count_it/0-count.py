@@ -41,11 +41,11 @@ def count_words(subreddit, word_list, after=None, counts=None):
                 print('{}: {}'.format(item[0], item[1]))
 
 
-if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print("Usage: python script.py subreddit word1,word2,word3")
-        sys.exit(1)
+# if __name__ == '__main__':
+#     if len(sys.argv) < 3:
+#         print("Usage: python script.py subreddit word1,word2,word3")
+#         sys.exit(1)
 
-    subreddit = sys.argv[1]
-    word_list = sys.argv[2].split(",")
-    count_words(subreddit, word_list)
+#     subreddit = sys.argv[1]
+#     word_list = sys.argv[2].split(",")
+#     count_words(subreddit, word_list)
