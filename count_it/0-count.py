@@ -29,7 +29,10 @@ def count_words(subreddit, word_list):
         for child in children:
             title = child.get('data').get('title').lower()
             for word in word_count.keys():
-                word_count[word] += title.split(' ').count(word)
+                for title_word in title.split(' '):
+                    if word == title_word:
+                        word_count[word] += 1
+
         after = data.get('after')
         if after:
             count_words_recursive(subreddit, word_list, after)
