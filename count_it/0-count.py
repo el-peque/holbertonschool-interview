@@ -31,4 +31,10 @@ def count_words(subreddit, word_list):
 
 
 if __name__ == '__main__':
-    count_words(sys.argv[1], sys.argv[2:])
+    if len(sys.argv) < 3:
+        print("Usage: python script.py subreddit word1 word2 word3 ...")
+        sys.exit(1)
+
+    subreddit = sys.argv[1]
+    word_list = sys.argv[2:]
+    count_words(subreddit, word_list)
