@@ -7,6 +7,7 @@ import sys
 def count_words(subreddit, word_list):
     """Count words in subreddit"""
     r = requests.get(url='https://www.reddit.com/r/{}/hot.json'.format(subreddit),
+                     params={"limit": 100},
                      headers={'User-Agent': 'Mozilla/5.0'})
     if r.status_code != 200:
         return
