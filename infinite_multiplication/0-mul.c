@@ -41,7 +41,7 @@ int main(int argc, char **argv)
  */
 void multiply(char *num1, char *num2, int num1_length, int num2_length)
 {
-	int i, f, zero_idx = 0, mult, rest = 0, idx = 1023, sum, sum_rest = 0;
+	int i, f, zero_idx = 0, mult, rest = 0, idx = 1023;
 	char *result = NULL;
 
 	result = malloc(sizeof(char) * 1024);
@@ -76,7 +76,7 @@ void multiply(char *num1, char *num2, int num1_length, int num2_length)
 	while (result[i] == '0' && result[i + 1] != '\0')
 		i++;
 
-	for (i = i; result[i]; i++)
+	for (; result[i]; i++)
 		putchar(result[i]);
 	putchar('\n');
 
