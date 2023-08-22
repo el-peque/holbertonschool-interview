@@ -41,17 +41,17 @@ int main(int argc, char **argv)
  */
 void multiply(char *num1, char *num2, int num1_length, int num2_length)
 {
-	int i, f, zero_idx = 0, mult, rest = 0, idx = 1023;
+	int i, f, zero_idx = 0, mult, rest = 0, idx = 9999;
 	char *result = NULL;
 
-	result = malloc(sizeof(char) * 1024);
+	result = malloc(sizeof(char) * 10000);
 	fill_zero(result);
 
 	for (i = num1_length - 1; i >= 0; i--)
 	{
 		int num1_digit = num1[i] - '0';
 
-		idx = 1023 - zero_idx;
+		idx = 9999 - zero_idx;
 		rest = 0;
 
 		for (f = num2_length - 1; f >= 0; f--)
@@ -92,7 +92,7 @@ void fill_zero(char *str)
 {
 	int i = 0;
 
-	while (i < 1024)
+	while (i < 10000)
 	{
 		str[i] = '0';
 		i++;
