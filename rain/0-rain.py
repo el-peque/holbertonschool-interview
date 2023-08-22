@@ -11,7 +11,7 @@ def rain(walls):
     water = 0
     for i in range(len(walls)):
         for j in range(i + 1, len(walls)):
-            if walls[j] > walls[i]:
+            if walls[j] >= walls[i]:
                 for k in range(i + 1, j):
                     if walls[i] - walls[k] > 0:
                         sum = walls[i] - walls[k]
@@ -21,7 +21,7 @@ def rain(walls):
     walls.reverse()
     for i in range(len(walls)):
         for j in range(i + 1, len(walls)):
-            if walls[j] > walls[i]:
+            if walls[j] >= walls[i]:
                 for k in range(i + 1, j):
                     if walls[i] - walls[k] > 0:
                         sum = walls[i] - walls[k]
