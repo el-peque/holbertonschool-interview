@@ -26,9 +26,9 @@ int main(int argc, char **argv)
 	num1_length = _length(argv[1]);
 	num2_length = _length(argv[2]);
 
-	printf("");
-
 	multiply(argv[1], argv[2], num1_length, num2_length);
+
+	return (0);
 }
 
 /**
