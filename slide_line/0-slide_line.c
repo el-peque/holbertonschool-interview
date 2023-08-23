@@ -14,8 +14,14 @@ int slide_line(int *line, size_t size, int direction)
 	int change = 0;
 	int MAX_SIZE = (int)size;
 	int changes[MAX_SIZE];
+	int i;
 
-	fill_zeroes(changes, MAX_SIZE);
+	// fill_zeroes(changes, MAX_SIZE);
+
+	for (i = 0; i < MAX_SIZE; i++)
+	{
+		changes[i] = 0;
+	}
 	while (direction == SLIDE_RIGHT)
 	{
 		change = slide_right(line, changes, MAX_SIZE);
