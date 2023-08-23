@@ -8,9 +8,9 @@
  */
 void heap_sort(int *array, size_t size)
 {
-	size_t i = 0;
+	size_t i = size / 2 - 1;
 
-	for (i = size / 2 - 1; i >= 0; i--)
+	for (; i >= 0; i--)
 	{
 		heapify(array, size, i, size);
 	}
