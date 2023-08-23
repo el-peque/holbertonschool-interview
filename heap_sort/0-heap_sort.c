@@ -8,14 +8,14 @@
  */
 void heap_sort(int *array, size_t size)
 {
-	size_t i = size / 2 - 1;
+	int i = 0;
 
-	for (; i >= 0; i--)
+	for (i = (int)size / 2 - 1; i >= 0; i--)
 	{
 		heapify(array, size, i, size);
 	}
 
-	for (i = size - 1; i > 0; i--)
+	for (i = (int)size - 1; i > 0; i--)
 	{
 		swap(&array[0], &array[i]);
 		print_array(array, size);
