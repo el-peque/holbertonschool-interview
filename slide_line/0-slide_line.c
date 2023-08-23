@@ -12,30 +12,21 @@
 int slide_line(int *line, size_t size, int direction)
 {
 	int change = 0;
-	int *changes;
-
-	changes = malloc(sizeof(int) * size);
+	int changes[(int)size];
 
 	fill_zeroes(changes, size);
 	while (direction == SLIDE_RIGHT)
 	{
 		change = slide_right(line, changes, size);
 		if (change == 0)
-		{
 			return (1);
-			free(changes);
-		}
 	}
 	while (direction == SLIDE_LEFT)
 	{
 		change = slide_left(line, changes, size);
 		if (change == 0)
-		{
 			return (1);
-			free(changes);
-		}
 	}
-	free(changes);
 	return (0);
 }
 
